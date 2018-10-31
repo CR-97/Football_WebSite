@@ -38,7 +38,7 @@ class FooterPagePro extends Component {
       <Footer color="mdb-color" className="font-small pt-4 mt-4">
         <Container className="text-center text-md-left">
           <Row className="text-center text-md-left mt-3 pb-3">
-            <Col md="4" lg="3" xl="3" className="mx-auto mt-3">
+            <Col md="3" lg="3" xl="3" className="mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">
                 Links
               </h6>

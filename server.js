@@ -11,10 +11,6 @@ const data = require('./Route/data');
 const standing = require('./Route/standingData');
 const scorer = require('./Route/scorerData');
 
-//Schema
-const News = require('./schema/schema2');
-const Comp = require('./schema/schema');
-
 //Body-Parser + Cors
 app.use(cors());
 app.use(bodyParser.json());
@@ -50,7 +46,7 @@ app.get('/getNews1', (req, res) => {
       res.status(200).json(response);
     })
     .catch((error) => {
-      console.log(error);
+      res.send(error);
       res.status(404).json(error);
     })
 });
@@ -62,7 +58,7 @@ app.get('/getNews2', (req, res) => {
       res.status(200).json(response);
     })
     .catch((error) => {
-      console.log(error);
+      res.send(error);
       res.status(404).json(error);
     })
 });
@@ -74,7 +70,7 @@ app.get('/getNews3', (req, res) => {
       res.status(200).json(response);
     })
     .catch((error) => {
-      console.log(error);
+      res.send(error);
       res.status(404).json(error);
     })
 });
@@ -94,46 +90,11 @@ app.get('/getMatches', (req, res) => {
       res.status(200).json(response);
   })
   .catch((error) => {
-      //console.log(error);
+      res.send(error);
       res.status(404).json(error);
   })
 });
 
-app.get('/getCompetition/:id', (req, res) => {
-  axios.get("http://api.football-data.org/v2/competitions/2019/teams",{
-    headers: { 'X-Auth-Token': token }
-  })
-  .then((response) => {
-      res.send(response.data);
-      res.status(200).json(response);
-  })
-  .catch((error) => {
-      //console.log(error);
-      res.status(404).json(error);
-  })
-});
-
-app.post('/getCompetition',(req,res) =>{
-  var id = req.body.id
-  console.log(id);
-  var comp = `http://api.football-data.org/v2/competitions/${id}/teams`;
-  console.log("Site1 = ",comp);
-  app.get(`/getCompetition`,(req,res) =>{
-    axios.get(comp,{
-      headers: { 'X-Auth-Token': token }
-    })
-    .then((response) => {
-        console.log(response.data.competition.name)
-        res.send(response.data);
-        res.status(200).json(response);
-    })
-    .catch((error) => {
-        //console.log(error);
-        res.status(404).json(error);
-    })
-  });
-});
-  
 
 app.listen(5000, ()=>{
   console.log('Server started on port 5000');

@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText,Container, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText,Container, Row, Table,Col } from 'reactstrap';
 import classnames from 'classnames';
-import Table1 from './Scorer/ScorerT1';
+
+import Table1 from './ScorerT1';
+import Table2 from './ScorerT2';
+import Table3 from './ScorerT3';
+import Table4 from './ScorerT4';
+import Table5 from './ScorerT5';
+import Table6 from './ScorerT6';
 
 import axios from 'axios';
 
@@ -17,7 +23,7 @@ export default class Scorer extends Component {
       ligue1: [],
       bunde: [],
       seriesA: [],
-      laliga: []
+      liga: []
     };
   }
 
@@ -43,7 +49,7 @@ export default class Scorer extends Component {
     .get("/getScorer/2001") 
       .then(response =>{
         this.setState({
-         uefa:response.data.scorers
+         uefa:response.data
         });
       })
       .catch(error => {
@@ -56,7 +62,7 @@ export default class Scorer extends Component {
     .get("/getScorer/2002") 
       .then(response =>{
         this.setState({
-         bunde:response.data.scorers
+         bunde:response.data
         });
       })
       .catch(error => {
@@ -69,7 +75,7 @@ export default class Scorer extends Component {
     .get("/getScorer/2014") 
       .then(response =>{
         this.setState({
-         laliga:response.data
+         liga:response.data
         });
       })
       .catch(error => {
@@ -95,7 +101,7 @@ export default class Scorer extends Component {
     .get("/getScorer/2019") 
       .then(response =>{
         this.setState({
-         seriesA:response.data.scorers
+         seriesA:response.data
         });
       })
       .catch(error => {
@@ -108,7 +114,7 @@ export default class Scorer extends Component {
     .get("/getScorer/2021") 
       .then(response =>{
         this.setState({
-         premier:response.data.scorers
+         premier:response.data
         });
       })
       .catch(error => {
@@ -118,6 +124,37 @@ export default class Scorer extends Component {
 
   
   render() {
+    const bunde = this.state.bunde.map((item)=>{
+      return(
+        <Table1 item={item}/>
+      );
+    });
+    const lg = this.state.liga.map((item)=>{
+      return(
+        <Table2 item={item}/>
+      );
+    });
+    const ligue = this.state.ligue1.map((item)=>{
+      return(
+        <Table3 item={item}/>
+      );
+    });
+    const pl = this.state.premier.map((item)=>{
+      return(
+        <Table4 item={item}/>
+      );
+    });
+    const series = this.state.seriesA.map((item)=>{
+      return(
+        <Table5 item={item}/>
+      );
+    });
+    const uefa = this.state.uefa.map((item)=>{
+      return(
+        <Table6 item={item}/>
+      );
+    });
+
     return (
       <div>
         <Container>
@@ -182,52 +219,109 @@ export default class Scorer extends Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Container>
-              <Table1 item={this.state.laliga}/>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {bunde}
+          </tbody>
+            </Table>
             </Container>
           </TabPane>
 
           <TabPane tabId="2">
-            <Row>
-              <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-              </Col>
-            </Row>
+          <Container>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {lg}
+          </tbody>
+            </Table>
+            </Container>
           </TabPane>
 
           <TabPane tabId="3">
-            <Row>
-              <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-              </Col>
-            </Row>
+          <Container>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {ligue}
+          </tbody>
+            </Table>
+            </Container>
           </TabPane>
 
           <TabPane tabId="4">
-            <Row>
-              <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-              </Col>
-            </Row>
+          <Container>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {pl}
+          </tbody>
+            </Table>
+            </Container>
           </TabPane>
 
           <TabPane tabId="5">
-            <Row>
-              <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-              </Col>
-            </Row>
+          <Container>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {series}
+          </tbody>
+            </Table>
+            </Container>
           </TabPane>
 
           <TabPane tabId="6">
-            <Row>
-              <Col sm="12">
-                <h4>Tab 1 Contents</h4>
-              </Col>
-            </Row>
+          <Container>
+            <Table>
+              <thead>
+              <tr>
+              <th>Player</th>
+              <th>Club</th>
+              <th>Goals</th>
+             </tr>
+            </thead>
+          <tbody>
+            {uefa}
+          </tbody>
+            </Table>
+            </Container>
           </TabPane>
         
         </TabContent>
         </Container>
+        <br/><br/>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Table, Container } from 'reactstrap';
 
 
-const Table1 = props =>{
+const Table3 = props =>{
   //console.log(scorer);
   return (
     <tr>     
@@ -13,4 +13,4 @@ const Table1 = props =>{
   );
 
 };
-export default Table1;
+export default Table3;
