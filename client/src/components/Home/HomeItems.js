@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container, Row, Col,
-  Card, CardImg, CardText, CardBody,
+  Col, Card, CardText, CardBody,
   CardTitle, CardSubtitle, CardFooter
 } from 'reactstrap';
 import {
@@ -23,7 +22,7 @@ const HomeItems = props =>{
   return(
     <Col sm="4">
     <Card id="size">
-      <CardImg top width="100%" src={props.item.urlToImage} alt={props.item.title}/>
+      <CardImage top width="100%" src={props.item.urlToImage} alt={props.item.title}/>
     <CardBody>
       <CardTitle>{props.item.title}</CardTitle>
       <CardSubtitle id="subtitle">{props.item.description}</CardSubtitle>

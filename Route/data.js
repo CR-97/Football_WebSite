@@ -15,11 +15,10 @@ const {BundesLiga,
 router.get('/getTeam/2002',(req,res)=>{
   BundesLiga.find()
   .then(team=>{
-    res.send(team);
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+   
     res.status(404).json(err);
   })
 })
@@ -27,11 +26,11 @@ router.get('/getTeam/2002',(req,res)=>{
 router.get('/getTeam/2001',(req,res)=>{
   Uefa.find()
   .then(team=>{
-    res.send(team);
+    
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -39,11 +38,11 @@ router.get('/getTeam/2001',(req,res)=>{
 router.get('/getTeam/2014',(req,res)=>{
  Liga.find()
   .then(team=>{
-    res.send(team);
+    
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -51,11 +50,11 @@ router.get('/getTeam/2014',(req,res)=>{
 router.get('/getTeam/2015',(req,res)=>{
   Ligue.find()
   .then(team=>{
-    res.send(team);
+    
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -63,11 +62,11 @@ router.get('/getTeam/2015',(req,res)=>{
 router.get('/getTeam/2019',(req,res)=>{
   Series.find()
   .then(team=>{
-    res.send(team);
+    
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -75,11 +74,11 @@ router.get('/getTeam/2019',(req,res)=>{
 router.get('/getTeam/2021',(req,res)=>{
   Premier.find()
   .then(team=>{
-    res.send(team);
+    
     res.status(200).json(team);
   })
   .catch(err=>{
-    res.send(err);
+   
     res.status(404).json(err);
   })
 })
@@ -87,12 +86,13 @@ router.get('/getTeam/2021',(req,res)=>{
 
 router.get('/getComp',(req,res)=>{
   Comp.find()
+  .sort({comp_name:'asc'})
   .then(comp=>{
-    res.send(comp);
+   
     res.status(200).json(comp);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -100,11 +100,10 @@ router.get('/getComp',(req,res)=>{
 router.get('/getSaveNews', (req,res)=>{
   News.find()
   .then(data => {
-    res.send(data)
+    
     res.status(200).json(data);
   })
   .catch(err=>{
-    res.send(err);
     res.status(404).json(err);
   })
 })
@@ -118,11 +117,11 @@ router.post('/getSaveNews/add', (req, res) => {
   }];
   News.insertMany(array)
   .then(res =>{
-    res.send(res);
+    
     res.status(200).json(res);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   });
 })
@@ -134,11 +133,11 @@ router.post('/getSaveNews/delete', (req, res) => {
   };
   News.deleteOne(query)
   .then(res=>{
-    res.send(res);
+   
     res.status(200).json(res);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(400).json(err);
   });
 })
@@ -146,11 +145,11 @@ router.post('/getSaveNews/delete', (req, res) => {
 router.get('/getSaveTeams', (req,res)=>{
   Like.find()
   .then(data => {
-    res.send(data)
+    
     res.status(200).json(data);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   })
 })
@@ -164,11 +163,11 @@ router.post('/getSaveTeams/add', (req, res) => {
   }];
   Like.insertMany(array)
   .then(res =>{
-    res.send(res);
+    
     res.status(200).json(res);
   })
   .catch(err=>{
-    res.send(err);
+    
     res.status(404).json(err);
   });
 })
@@ -180,11 +179,9 @@ router.post('/getSaveTeams/delete', (req, res) => {
   };
   Like.deleteOne(query)
   .then(res =>{
-    res.send(res);
-    res.status(200).json(res);
+    res.status(200).json("Deleted item: ", res);
   })
   .catch(err=>{
-    res.send(err);
     res.status(404).json(err);
   });
 })

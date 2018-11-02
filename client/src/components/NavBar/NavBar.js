@@ -16,20 +16,7 @@ import {
 import NavContent from './NavItems';
 
 
-// class AppNavbar extends Component {
-//   constructor(props){
-//     super(props);
-//   }
-//   state = {
-//     isOpen: false
-//   };
-
-//   toggle = () => {
-//     this.setState({
-//       isOpen: !this.state.isOpen
-//     });
-//   }
-// }
+import Logo from './logo.png';
 
 const AppNavbar = props => {
   const open = props.open;
@@ -44,19 +31,20 @@ const AppNavbar = props => {
   
   return (
       <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar id="navbar"expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">Real Football</NavbarBrand>
+            <img src={Logo} id="logo"/>
+            <NavbarBrand id="navtitle" href="/">Phoneix Football</NavbarBrand>
             <NavbarToggler onClick={props.onToggle} />
             <Collapse isOpen={open} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/" to="/">
+                  <NavLink id="navitem" href="/" to="/">
                     Home
                   </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle id="navitem" nav caret>
                   Competitions
                 </DropdownToggle>
                 <DropdownMenu right>
@@ -72,12 +60,12 @@ const AppNavbar = props => {
                 </DropdownMenu>
               </UncontrolledDropdown>
                 <NavItem>
-                  <NavLink href="/matches" to="/matches">
+                  <NavLink id="navitem" href="/matches" to="/matches">
                     Matches
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/saved_items" to="/saved_items">
+                  <NavLink id="navitem" href="/saved_items" to="/saved_items">
                     Saved
                   </NavLink>
                 </NavItem>

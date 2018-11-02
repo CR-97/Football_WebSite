@@ -39,9 +39,25 @@ class App extends Component {
     });
   }
 
+   /*----------API GET Call-----------------*/
+   componentDidMount() {
+    this.getNews1();
+    this.getNews2();
+    this.getNews3();
+    this.getMatches();
+    this.getComp();
+  }
+    
+  componentWillUpdate(){
+    this.getNews1();
+    this.getNews2();
+    this.getNews3();
+  }
+
+  /*----------End of API GET Call-------------*/
   getNews1 =() =>{
     axios
-    .get("/getNews1") 
+    .get("http://localhost:5000/getNews1") 
       .then(response =>{
         this.setState({
           news1:response.data.articles
@@ -54,7 +70,7 @@ class App extends Component {
 
   getNews2 =() =>{
     axios
-    .get("/getNews2") 
+    .get("http://localhost:5000/getNews2") 
       .then(response =>{
         this.setState({
           news2:response.data.articles
@@ -67,7 +83,7 @@ class App extends Component {
 
   getNews3 =() =>{
     axios
-    .get("/getNews3") 
+    .get("http://localhost:5000/getNews3") 
       .then(response =>{
         this.setState({
           news3:response.data.articles
@@ -87,7 +103,7 @@ class App extends Component {
           });
         })
         .catch(error => {
-          //alert(error);
+          alert(error);
         });
 
   }
@@ -106,24 +122,7 @@ class App extends Component {
       });
   }
 
-  /*----------API GET Call-----------------*/
-  componentDidMount() {
-    this.getNews1();
-    this.getNews2();
-    this.getNews3();
-    this.getMatches();
-    this.getComp();
-  }
-    
-  componentWillUpdate(){
-    this.getNews1();
-    this.getNews2();
-    this.getNews3();
-    this.getMatches();
-    this.getComp();
-  }
-
-  /*----------End of API GET Call-------------*/
+ 
     handleSubmit(newsData){
       console.log(newsData);
       axios.post("/getSaveNews/add", newsData)
@@ -138,7 +137,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div id="page">
           <AppNavBar item={this.state.comp} open={this.state.isOpen} onClick={this.handleNavigate} onToggle={this.toggle}/>
          
         <Route exact path="/" render={() =><Home item={this.state.news} item2={this.state.news2} item3={this.state.news3} onClick={this.handleSubmit}/>}/>

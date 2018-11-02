@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const db = require('./config/config-key').mongoKey;
-const token = require('./config/apiKey').token1;
-
 const axios =require('axios');
 const cors = require('cors');
 const app = express();
+
+
+const db = require('./config/config-key').mongoKey;
+const token = require('./config/apiKey').token1;
 const data = require('./Route/data');
 const standing = require('./Route/standingData');
 const scorer = require('./Route/scorerData');
@@ -22,7 +23,7 @@ mongoose.connect(db,{ useNewUrlParser: true })
   console.log('Connected to database...');
 })
 .catch((error)=>{
-  console.log(error);
+  console.log('Connection Failed : ',error);
 });
 
 
@@ -42,11 +43,11 @@ const url4 =`https://newsapi.org/v2/everything?sources=talksport&apiKey=${apiKey
 app.get('/getNews1', (req, res) => {
   axios.get(url)
     .then((response) => {
-      res.send(response.data);
-      res.status(200).json(response);
+      // res.send(response.data);
+      res.status(200).json(response.data);
     })
     .catch((error) => {
-      res.send(error);
+      // res.send(error);
       res.status(404).json(error);
     })
 });
@@ -54,11 +55,11 @@ app.get('/getNews1', (req, res) => {
 app.get('/getNews2', (req, res) => {
   axios.get(url2)
     .then((response) => {
-      res.send(response.data);
-      res.status(200).json(response);
+      // res.send(response.data);
+      res.status(200).json(response.data);
     })
     .catch((error) => {
-      res.send(error);
+      // res.send(error);
       res.status(404).json(error);
     })
 });
@@ -66,11 +67,11 @@ app.get('/getNews2', (req, res) => {
 app.get('/getNews3', (req, res) => {
   axios.get(url3)
     .then((response) => {
-      res.send(response.data);
-      res.status(200).json(response);
+      // res.send(response.data);
+      res.status(200).json(response.data);
     })
     .catch((error) => {
-      res.send(error);
+      // res.send(error);
       res.status(404).json(error);
     })
 });
@@ -86,11 +87,11 @@ app.get('/getMatches', (req, res) => {
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      res.send(response.data);
-      res.status(200).json(response);
+      // res.send(response.data);
+      res.status(200).json(response.data);
   })
   .catch((error) => {
-      res.send(error);
+      // res.send(error);
       res.status(404).json(error);
   })
 });

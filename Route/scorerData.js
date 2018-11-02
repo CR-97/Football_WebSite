@@ -10,11 +10,10 @@ scorer.get('/getScorer/2001', (req, res) => {
     headers: { 'X-Auth-Token': token2 }
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
-      res.send(error);
+     
       res.status(404).json(error);
   })
 });
@@ -25,11 +24,11 @@ scorer.get('/getScorer/2002', (req, res) => {
     headers: { 'X-Auth-Token': token2}
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+      
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
-      res.send(error);
+     
       res.status(404).json(error);
   })
 });
@@ -40,11 +39,10 @@ scorer.get('/getScorer/2014', (req, res) => {
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+      r
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
-           res.send(error);
       res.status(404).json(error);
   })
 });
@@ -55,11 +53,11 @@ scorer.get('/getScorer/2015', (req, res) => {
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+     
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
-           res.send(error);
+        
       res.status(404).json(error);
   })
 });
@@ -70,11 +68,11 @@ scorer.get('/getScorer/2019', (req, res) => {
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+      
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
-           res.send(error);
+          
       res.status(404).json(error);
   })
 });
@@ -85,8 +83,7 @@ scorer.get('/getScorer/2021', (req, res) => {
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      res.send(response.data.scorers);
-      res.status(200).json(response);
+      res.status(200).json(response.data.scorers);
   })
   .catch((error) => {
            res.send(error);

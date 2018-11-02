@@ -39,7 +39,9 @@ const Home = props =>{
       </Container>
       <Container>
         <Row>
-        {res}{res2}{res3}
+        {res}
+        {res2}
+        {res3}
         </Row>
       </Container>
     </div>

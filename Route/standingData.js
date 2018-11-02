@@ -10,12 +10,12 @@ standing.get('/getStanding/2002', (req, res) => {
   })
   .then((response) => {
     for(var i = 1; i<response.data.standings.length; i++){
-      res.send(response.data.standings[i].table);
-      res.status(200).json(response);
+     
+      res.status(200).json(response.data.standings[i].table);
     }
   })
   .catch((error) => {
-      res.send(error);
+      
       res.status(404).json(error);
   })
 });
@@ -27,12 +27,12 @@ standing.get('/getStanding/2014', (req, res) => {
   })
   .then((response) => {
     for(var i = 1; i<response.data.standings.length; i++){
-      res.send(response.data.standings[i].table);
-      res.status(200).json(response);
+      
+      res.status(200).json(response.data.standings[i].table);
     }
   })
   .catch((error) => {
-      res.send(error);
+      
       res.status(404).json(error);
   })
 });
@@ -44,12 +44,12 @@ standing.get('/getStanding/2015', (req, res) => {
   })
   .then((response) => {
     for(var i = 1; i<response.data.standings.length; i++){
-      res.send(response.data.standings[i].table);
-      res.status(200).json(response);
+      
+      res.status(200).json(response.data.standings[i].table);
     }
   })
   .catch((error) => {
-      res.send(error);
+      
       res.status(404).json(error);
   })
 });
@@ -61,12 +61,12 @@ standing.get('/getStanding/2019', (req, res) => {
   })
   .then((response) => {
     for(var i = 1; i<response.data.standings.length; i++){
-      res.send(response.data.standings[i].table);
-      res.status(200).json(response);
+      
+      res.status(200).json(response.data.standings[i].table);
     }
   })
   .catch((error) => {
-      res.send(error);
+      
       res.status(404).json(error);
   })
 });
@@ -78,12 +78,11 @@ standing.get('/getStanding/2021', (req, res) => {
   })
   .then((response) => {
     for(var i = 1; i<response.data.standings.length; i++){
-      res.send(response.data.standings[i].table);
-      res.status(200).json(response);
+      res.status(200).json(response.data.standings[i].table);
     }
   })
   .catch((error) => {
-      res.send(error);
+     
       res.status(404).json(error);
   })
 });

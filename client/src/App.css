@@ -1,5 +1,25 @@
+#page{
+  background-color: rgb(233, 231, 231);
+}
+
+#navbar{
+  background-color:  rgb(69, 82, 110) ;
+  color: white;
+}
+
+#navitem{
+  font-size: 17px;
+  color: white;
+}
+
+#navtitle{
+  font-size: 30px;
+  color:white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #team-size{
-  height:450px;
+  height:400px;
 }
 
 #img-size{
@@ -11,9 +31,20 @@
 
 #size{
   height: 800px;
+  border-color: rgb(69, 82, 110);
 }
 #save-size{
   height: 600px;
+  border-color:  rgb(69, 82, 110);
+}
+
+#logo{
+  height:75px;
+  width: 90px;
+  margin-right:7px;
+  border-radius: 38px;
+  border-color: black;
+
 }
 
 #score-size{
@@ -55,10 +86,6 @@
   background: rgb(197, 20, 20) !important; 
   padding: 15px;
   margin-left: 75px;
-}
-
-.float{
-  margin-left: 150px;
 }
 
 .btn-circle.btn-lg {

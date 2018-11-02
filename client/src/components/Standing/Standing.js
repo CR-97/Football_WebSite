@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText,Container, Row, Table,Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink,Container, Table} from 'reactstrap';
 import classnames from 'classnames';
 
 import S1 from './StandingT1';
@@ -68,7 +68,7 @@ export default class Standing extends Component {
     .get("/getStanding/2014") 
       .then(response =>{
         this.setState({
-         laliga:response.data
+         liga:response.data
         });
       })
       .catch(error => {

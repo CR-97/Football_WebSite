@@ -23,14 +23,14 @@ class FooterPagePro extends Component {
         });
       })
       .catch(error => {
-        alert(error);
+        console.log(error);
       });
   }
 
   render() {
     const comp = this.state.main.map(item =>{
       return(
-        <p>{item.comp_name}</p>
+        <p>{item.comp_name} ({item.comp_area})</p>
       );
     });
 
@@ -38,7 +38,7 @@ class FooterPagePro extends Component {
       <Footer color="mdb-color" className="font-small pt-4 mt-4">
         <Container className="text-center text-md-left">
           <Row className="text-center text-md-left mt-3 pb-3">
-            <Col md="3" lg="3" xl="3" className="mx-auto mt-3">
+            <Col md="2" lg="3" xl="3" className="mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">
                 Links
               </h6>
@@ -46,13 +46,13 @@ class FooterPagePro extends Component {
                 <a href="/">Home</a>
               </p>
               <p>
-                <a href="/saved_items">Teams</a>
+                <a href="/team">Teams</a>
               </p>
               <p>
-                <a href="/saved_items">Standing</a>
+                <a href="/standings">Standing</a>
               </p>
               <p>
-                <a href="/saved_items">Top Scorer</a>
+                <a href="/scorer">Top Scorer</a>
               </p>
               <p>
                 <a href="/matches">Matches</a>
@@ -62,7 +62,7 @@ class FooterPagePro extends Component {
               </p>
             </Col>
             <hr className="w-100 clearfix d-md-none" />
-            <Col md="4" lg="2" xl="2" className="mx-auto mt-3">
+            <Col md="6" lg="2" xl="2" className="mx-auto mt-3">
               <h6 className="text-uppercase mb-4 font-weight-bold">League Available</h6>
               <p>
                 {comp}
@@ -74,13 +74,13 @@ class FooterPagePro extends Component {
                 Links
               </h6> 
               <p>
-                <i className="fa fa-home mr-3" /> New York, NY 10012, US
+                <i className="fa fa-home mr-3" />Z-1, Lebuh Bukit Jambul, Bukit Jambul, 11900 Bayan Lepas, Pulau Pinang.
               </p>
               <p>
-                <i className="fa fa-envelope mr-3" /> info@gmail.com
+                <i className="fa fa-envelope mr-3" />https://newinti.edu.my
               </p>
               <p>
-                <i className="fa fa-phone mr-3" /> + 01 234 567 88
+                <i className="fa fa-phone mr-3" /> +6 04-631 0138
               </p>
             </Col>
             <hr className="w-100 clearfix d-md-none" />
@@ -90,29 +90,29 @@ class FooterPagePro extends Component {
             <Col md="8" lg="8">
               <p className="text-center text-md-left grey-text">
                 &copy; {new Date().getFullYear()} Copyright:{" "}
-                <a href="/"> realfootball.com </a>
+                <a href="/"> phoneixfootball.com </a>
               </p>
             </Col>
             <Col md="4" lg="4" className="ml-lg-0">
               <div className="text-center text-md-right">
                 <ul className="list-unstyled list-inline">
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.facebook.com/INTI.edu/">
                       <i className="fa fa-facebook" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://twitter.com/hashtag/intipenang">
                       <i className="fa fa-twitter" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.google.com/maps/d/u/0/viewer?msa=0&iwloc=0004ec379ef5d515f6145&mid=16GurbzqSDYEphwXucirlyP3qpuc&ll=5.339703999999999%2C100.28239800000006&z=17">
                       <i className="fa fa-google-plus" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.linkedin.com/company/inti-education-group">
                       <i className="fa fa-linkedin" />
                     </a>
                   </li>
