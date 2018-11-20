@@ -5,12 +5,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import axios from 'axios';
 
+//Auth Pages
+import Landing from './components/Auth/Landing';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import Profile from './components/Auth/Profile';
+
 import AppNavBar from './components/NavBar/NavBar';
 import AppFooter from './components/Footer';
 
 import Home from './components/Home/Home';
 import Match from './components/Matches/Matches';
 import Saved from './components/Saved/Saved';
+import Search from './components/Search';
 import Team from './components/Team/Team';
 import Standing from './components/Standing/Standing';
 import Scorer from './components/Scorer/Scorer';
@@ -138,12 +145,20 @@ class App extends Component {
     return (
       <Router>
         <div id="page">
-          <AppNavBar item={this.state.comp} open={this.state.isOpen} onClick={this.handleNavigate} onToggle={this.toggle}/>
+        {/* Auth Parts */}
+        <AppNavBar open={this.state.isOpen} onToggle={this.toggle}/>
+
+        <Route exact path="/" component={Landing} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/profile" component={Profile} />
+        
          
-        <Route exact path="/" render={() =><Home item={this.state.news} item2={this.state.news2} item3={this.state.news3} onClick={this.handleSubmit}/>}/>
+        <Route path="/home" render={() =><Home item={this.state.news} item2={this.state.news2} item3={this.state.news3} onClick={this.handleSubmit}/>}/>
         
         <Route path="/matches" render={() =><Match item={this.state.matches}/>} />
 
+        <Route path="/search" component={Search} />
         <Route path="/team" component={Team} />
         <Route path="/standings" component={Standing} />
         <Route path="/scorer" component={Scorer}/>

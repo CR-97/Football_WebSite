@@ -117,11 +117,11 @@ router.post('/getSaveNews/add', (req, res) => {
   }];
   News.insertMany(array)
   .then(res =>{
-    
+    res.send("Item added");
     res.status(200).json(res);
   })
   .catch(err=>{
-    
+    res.send("Add Failed");
     res.status(404).json(err);
   });
 })
@@ -133,11 +133,11 @@ router.post('/getSaveNews/delete', (req, res) => {
   };
   News.deleteOne(query)
   .then(res=>{
-   
+    res.send("Item deleted");
     res.status(200).json(res);
   })
   .catch(err=>{
-    
+    res.send("Delete Failed");
     res.status(400).json(err);
   });
 })
@@ -163,11 +163,11 @@ router.post('/getSaveTeams/add', (req, res) => {
   }];
   Like.insertMany(array)
   .then(res =>{
-    
+    res.send("Item added");
     res.status(200).json(res);
   })
   .catch(err=>{
-    
+    res.send("Add Failed");
     res.status(404).json(err);
   });
 })
@@ -179,9 +179,11 @@ router.post('/getSaveTeams/delete', (req, res) => {
   };
   Like.deleteOne(query)
   .then(res =>{
-    res.status(200).json("Deleted item: ", res);
+    res.send("Item deleted")
+    res.status(200).json();
   })
   .catch(err=>{
+    res.send("Delete Failed");
     res.status(404).json(err);
   });
 })

@@ -8,9 +8,10 @@ const app = express();
 
 const db = require('./config/config-key').mongoKey;
 const token = require('./config/apiKey').token1;
-const data = require('./Route/data');
-const standing = require('./Route/standingData');
-const scorer = require('./Route/scorerData');
+const data = require('./route/data');
+const standing = require('./route/standingData');
+const scorer = require('./route/scorerData');
+var Users = require('./route/Users');
 
 //Body-Parser + Cors
 app.use(cors());
@@ -32,22 +33,22 @@ app.use(data);
 /*----------- End of MongoDB Data -------------*/
 app.use(standing);
 app.use(scorer);
+app.use(Users);
 
 /*----------- News Api Get -------------*/
 const apiKey = '8a331e64c829479b91bbb3c54b0b4d9f';
 const url = `https://newsapi.org/v2/top-headlines?sources=four-four-two&apiKey=${apiKey}`;
 const url2 = `https://newsapi.org/v2/top-headlines?sources=football-italia&apiKey=${apiKey}`;
 const url3 = `https://newsapi.org/v2/top-headlines?sources=talksport&apiKey=${apiKey}`;
-const url4 =`https://newsapi.org/v2/everything?sources=talksport&apiKey=${apiKey}`;
 
 app.get('/getNews1', (req, res) => {
   axios.get(url)
     .then((response) => {
-      // res.send(response.data);
+     
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      // res.send(error);
+      
       res.status(404).json(error);
     })
 });
@@ -55,11 +56,10 @@ app.get('/getNews1', (req, res) => {
 app.get('/getNews2', (req, res) => {
   axios.get(url2)
     .then((response) => {
-      // res.send(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      // res.send(error);
+     
       res.status(404).json(error);
     })
 });
@@ -67,13 +67,29 @@ app.get('/getNews2', (req, res) => {
 app.get('/getNews3', (req, res) => {
   axios.get(url3)
     .then((response) => {
-      // res.send(response.data);
+      
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      // res.send(error);
       res.status(404).json(error);
     })
+});
+
+//Search News
+app.get('/getSearch', (req,res)=>{
+  let q = req.query.q;
+  let query = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}`;
+  let url =` https://api.themoviedb.org/3/search/tv?api_key=10255e7670c6cf88d80320c2ddf5f034&query=${q}`;
+
+  axios.get(query)
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      res.send("Not Found");
+      res.status(404).json(error);
+    })
+
 });
 
 //End of News Api Get
@@ -81,17 +97,16 @@ app.get('/getNews3', (req, res) => {
 //FootBall Api Get
 const matches
  = 'https://api.football-data.org/v2/matches';
-// const token = 'c73d1cb1e85c4d39b6e710c54b4a5266';
+
 app.get('/getMatches', (req, res) => {
   axios.get(matches,{
     headers: { 'X-Auth-Token': token }
   })
   .then((response) => {
-      // res.send(response.data);
+     
       res.status(200).json(response.data);
   })
   .catch((error) => {
-      // res.send(error);
       res.status(404).json(error);
   })
 });
