@@ -6,18 +6,16 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 
 //Auth Pages
-import Landing from './components/Auth/Landing';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import Profile from './components/Auth/Profile';
 
 import AppNavBar from './components/NavBar/NavBar';
 import AppFooter from './components/Footer';
 
 import Home from './components/Home/Home';
 import Match from './components/Matches/Matches';
-import Saved from './components/Saved/Saved';
-import Search from './components/Search';
+import Profile from './components/Profile/Saved';
+import Search from './components/Search/Search';
 import Team from './components/Team/Team';
 import Standing from './components/Standing/Standing';
 import Scorer from './components/Scorer/Scorer';
@@ -34,18 +32,9 @@ class App extends Component {
       news3:[],
       matches:[],
       comp:[],
-      isOpen: false
     };
   }
-
-  //Navbar Component
-
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
+  
    /*----------API GET Call-----------------*/
    componentDidMount() {
     this.getNews1();
@@ -146,15 +135,13 @@ class App extends Component {
       <Router>
         <div id="page">
         {/* Auth Parts */}
-        <AppNavBar open={this.state.isOpen} onToggle={this.toggle}/>
+        <AppNavBar/>
 
-        <Route exact path="/" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/profile" component={Profile} />
         
          
-        <Route path="/home" render={() =><Home item={this.state.news} item2={this.state.news2} item3={this.state.news3} onClick={this.handleSubmit}/>}/>
+        <Route exact path="/" render={() =><Home item={this.state.news} item2={this.state.news2} item3={this.state.news3} onClick={this.handleSubmit}/>}/>
         
         <Route path="/matches" render={() =><Match item={this.state.matches}/>} />
 
@@ -163,7 +150,7 @@ class App extends Component {
         <Route path="/standings" component={Standing} />
         <Route path="/scorer" component={Scorer}/>
 
-        <Route path="/saved_items" component={Saved} />
+        <Route path="/profile" component={Profile} />
         <AppFooter/>
       </div>
     </Router>

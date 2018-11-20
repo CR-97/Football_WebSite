@@ -1,9 +1,8 @@
-import SavedTeams from './SavedTeams';
-import SavedContent from './SavedItems';
 import React, { Component } from 'react';
+import jwt_decode from 'jwt-decode';
 
 import {
-  Container, Row, Col
+  Container, Row
 } from 'reactstrap';
 
 import SavedTeam from './SavedTeams';
@@ -16,12 +15,25 @@ export default class Saved extends Component{
     super();
     this.state={
       team:[],
-      saved:[]
+      saved:[],
+      first_name: '',
+      last_name: '',
+      email: ''
     };
+    
+
   }
+
   componentDidMount(){
     this.getsaved();
     this.getsavedTeam();
+    const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        this.setState({
+            first_name: decoded.first_name,
+            last_name: decoded.last_name,
+            email: decoded.email,
+        });
   }
 
   componentDidUpdate(){
@@ -60,10 +72,10 @@ export default class Saved extends Component{
     console.log("title =",title);
     axios.post("http://localhost:5000/getSaveNews/delete", title)
     .then(res =>{
-    console.log("Deleted");
+      alert("Item Deleted");
     })
     .catch(err=>{
-    // window.location.reload();
+      console.log('Error: ', err);
     });
 }
 
@@ -71,11 +83,11 @@ export default class Saved extends Component{
       console.log(name);
       axios.post("http://localhost:5000/getSaveTeams/delete", name)
       .then(res =>{
-        console.log("Deleted");
+        alert("Item Deleted");
       })
       .catch(err=>{
-        // window.location.reload();
-      })
+        console.log('Error: ', err);
+      });
     }
 
   render(){
@@ -92,6 +104,29 @@ export default class Saved extends Component{
     })
     return(
       <div>
+        <Container>
+                <div className="jumbotron mt-5">
+                    <div className="col-sm-8 mx-auto">
+                        <h1 className="text-center">PROFILE</h1>
+                    </div>
+                    <table className="table col-md-6 mx-auto">
+                        <tbody>
+                            <tr>
+                                <td>First Name</td>
+                                <td>{this.state.first_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td>{this.state.last_name}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{this.state.email}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </Container>
         <Container>
           <h1>Saved Teams</h1>
         </Container>

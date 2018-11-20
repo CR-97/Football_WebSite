@@ -90,30 +90,30 @@ class FooterPagePro extends Component {
             <Col md="8" lg="8">
               <p className="text-center text-md-left grey-text">
                 &copy; {new Date().getFullYear()} Copyright:{" "}
-                <a href="/"> phoneixfootball.com </a>
+                <a href="/"> phoneixfootball.com Created By: Richard Chuah</a>
               </p>
             </Col>
             <Col md="4" lg="4" className="ml-lg-0">
               <div className="text-center text-md-right">
                 <ul className="list-unstyled list-inline">
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.facebook.com/INTI.edu/">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.facebook.com/BleacherReportFootball/" target="_blank">
                       <i className="fa fa-facebook" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://twitter.com/hashtag/intipenang">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://twitter.com/brfootball" target="_blank">
                       <i className="fa fa-twitter" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.google.com/maps/d/u/0/viewer?msa=0&iwloc=0004ec379ef5d515f6145&mid=16GurbzqSDYEphwXucirlyP3qpuc&ll=5.339703999999999%2C100.28239800000006&z=17">
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://plus.google.com/discover/wz4saB" target="_blank">
                       <i className="fa fa-google-plus" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.linkedin.com/company/inti-education-group">
-                      <i className="fa fa-linkedin" />
+                    <a className="btn-floating btn-sm rgba-white-slight mx-1" href="https://www.instagram.com/bleacherreport/?hl=en" target="_blank">
+                      <i className="fa fa-instagram" />
                     </a>
                   </li>
                 </ul>

@@ -74,13 +74,11 @@ export default class Search extends Component{
         return(
         <Col>
           <Card>
-          <CardBody>
+          <a href={item.url} target="_blank">
+          <CardBody >
             <CardTitle>{item.title}</CardTitle>
-            <CardSubtitle>{item.description}</CardSubtitle>
           </CardBody>
-          <CardFooter>
-          <a href={item.url} target="_blank" className="black-text d-flex justify-content-end" id="read-more"><h5>Read more <Fa icon="angle-double-right"></Fa></h5></a>
-          </CardFooter>
+          </a>
           </Card>
           <br/>
         </Col>

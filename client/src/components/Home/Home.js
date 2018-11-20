@@ -1,7 +1,9 @@
 import Content from './HomeItems';
 import Content2 from './HomeItems2';
 import Content3 from './HomeItems3';
+import Landing from './Landing';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import {
   Container, Row, Col
@@ -32,8 +34,23 @@ const Home = props =>{
     );
   }
 
+  const loginRegLink = (
+    <div className="container">
+        <div className="jumbotron mt-5">
+            <div className="col-sm-8 mx-auto">
+              <h1 className="text-center">WELCOME TO PHONEIX FOOTBALL</h1>
+              <h3 className="text-center">Please register or login to view more contents</h3>
+            </div>
+        </div>
+    </div>
+    
+  )
+
   return(
     <div>
+      <Container>
+      {localStorage.usertoken ? Landing : loginRegLink}
+      </Container>
        <Container>
         <h1>Top Headlines</h1>
       </Container>
@@ -48,4 +65,4 @@ const Home = props =>{
   );
 };
 
-export default Home;
+export default withRouter(Home);

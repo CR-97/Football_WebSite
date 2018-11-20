@@ -26,7 +26,7 @@ class Login extends Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push(`/home`)
+                this.props.history.push(`/`)
             }
         })
     }

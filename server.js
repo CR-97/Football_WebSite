@@ -77,9 +77,8 @@ app.get('/getNews3', (req, res) => {
 
 //Search News
 app.get('/getSearch', (req,res)=>{
-  let q = req.query.q;
-  let query = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}`;
-  let url =` https://api.themoviedb.org/3/search/tv?api_key=10255e7670c6cf88d80320c2ddf5f034&query=${q}`;
+  const q = req.query.q;
+  const query = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}`;
 
   axios.get(query)
     .then((response) => {

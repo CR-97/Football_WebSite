@@ -57,15 +57,14 @@ class AppNavbar extends Component{
                 </NavLink>
               </NavItem>
             </Nav>
-            
-          
+
 
     )
 
     const userLink = (
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink id="navitem" href="/home" to="/home">
+                  <NavLink id="navitem" href="/" to="/">
                     Home
                   </NavLink>
                 </NavItem>
@@ -88,18 +87,11 @@ class AppNavbar extends Component{
                   <DropdownItem href="/scorer">
                     Top Scorers
                   </DropdownItem>
+                  <DropdownItem href="/matches">
+                    Matches
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-                <NavItem>
-                  <NavLink id="navitem" href="/matches" to="/matches">
-                    Matches
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink id="navitem" href="/saved_items" to="/saved_items">
-                    Saved
-                  </NavLink>
-                </NavItem>
                 <NavItem>
                   <NavLink id="navitem" href="/profile" to="/profile">
                     Profile
